@@ -9,6 +9,31 @@
   <name>LLM Agent Builder :: Chat Agent UI</name>
   <description>LLM Agent Builder :: Chat Agent UI</description>
 
+  <url>https://github.com/LLMAgentBuilder/chat-agent-ui</url>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Fu Cheng</name>
+      <email>alexcheng1982@gmail.com</email>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>
+      scm:git:git://github.com/LLMAgentBuilder/chat-agent-ui.git
+    </connection>
+    <developerConnection>
+      scm:git:ssh://github.com:LLMAgentBuilder/chat-agent-ui.git
+    </developerConnection>
+    <url>http://github.com/LLMAgentBuilder/chat-agent-ui</url>
+  </scm>
+
   <properties>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
