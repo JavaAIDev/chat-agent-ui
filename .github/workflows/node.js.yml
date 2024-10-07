@@ -25,6 +25,7 @@ jobs:
 
   build_jar:
     runs-on: ubuntu-latest
+    needs: build_web
 
     steps:
       - uses: actions/checkout@v4
