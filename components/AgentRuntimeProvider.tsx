@@ -3,6 +3,7 @@
 import type { ReactNode } from "react";
 import {
   AssistantRuntimeProvider,
+  TextContentPart,
   useLocalRuntime,
   type ChatModelAdapter,
 } from "@assistant-ui/react";
@@ -15,7 +16,7 @@ const AgentModelAdapter: ChatModelAdapter = {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        messages,
+        input: (messages[0]?.content[0] as TextContentPart)?.text,
       }),
       signal: abortSignal,
     });
@@ -25,7 +26,7 @@ const AgentModelAdapter: ChatModelAdapter = {
       content: [
         {
           type: "text",
-          text: data.text,
+          text: data.output,
         },
       ],
     };
