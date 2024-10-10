@@ -16,7 +16,8 @@ const AgentModelAdapter: ChatModelAdapter = {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        input: (messages[0]?.content[0] as TextContentPart)?.text,
+        input: (messages[messages.length - 1]?.content[0] as TextContentPart)
+          ?.text,
       }),
       signal: abortSignal,
     });
