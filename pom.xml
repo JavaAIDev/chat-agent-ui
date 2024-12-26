@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.llmagentbuilder</groupId>
   <artifactId>chat-agent-ui</artifactId>
-  <version>0.3.1</version>
+  <version>0.4.0</version>
   <name>LLM Agent Builder :: Chat Agent UI</name>
   <description>LLM Agent Builder :: Chat Agent UI</description>
 
