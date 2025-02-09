@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: "export",
-  distDir: "dist",
-};
+import {PHASE_DEVELOPMENT_SERVER} from 'next/constants.js'
 
-export default nextConfig;
+export default (phase) => {
+  const isDev = phase === PHASE_DEVELOPMENT_SERVER
+  return {
+    assetPrefix: isDev ? undefined : '/webjars/chat-agent-ui',
+    output: "export",
+    distDir: "dist",
+  }
+}
