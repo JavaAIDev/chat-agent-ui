@@ -3,13 +3,13 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>io.github.llmagentbuilder</groupId>
+  <groupId>com.javaaidev</groupId>
   <artifactId>chat-agent-ui</artifactId>
-  <version>0.4.0</version>
-  <name>LLM Agent Builder :: Chat Agent UI</name>
-  <description>LLM Agent Builder :: Chat Agent UI</description>
+  <version>0.1.0</version>
+  <name>Chat Agent UI</name>
+  <description>Chat Agent UI</description>
 
-  <url>https://github.com/LLMAgentBuilder/chat-agent-ui</url>
+  <url>https://github.com/JavaAIDev/chat-agent-ui</url>
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
@@ -26,12 +26,12 @@
 
   <scm>
     <connection>
-      scm:git:git://github.com/LLMAgentBuilder/chat-agent-ui.git
+      scm:git:git://github.com/JavaAIDev/chat-agent-ui.git
     </connection>
     <developerConnection>
-      scm:git:ssh://github.com:LLMAgentBuilder/chat-agent-ui.git
+      scm:git:ssh://github.com:JavaAIDev/chat-agent-ui.git
     </developerConnection>
-    <url>http://github.com/LLMAgentBuilder/chat-agent-ui</url>
+    <url>http://github.com/JavaAIDev/chat-agent-ui</url>
   </scm>
 
   <repositories>
