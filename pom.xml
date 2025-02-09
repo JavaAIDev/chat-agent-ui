@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.javaaidev</groupId>
   <artifactId>chat-agent-ui</artifactId>
-  <version>0.1.0</version>
+  <version>0.5.0</version>
   <name>Chat Agent UI</name>
   <description>Chat Agent UI</description>
 
