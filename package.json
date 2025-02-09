@@ -11,7 +11,7 @@
   "dependencies": {
     "@assistant-ui/react": "^0.7",
     "@assistant-ui/react-markdown": "^0.7",
-    "next": "14.2.11",
+    "next": "15.1.2",
     "react": "^18",
     "react-dom": "^18",
     "tailwindcss-animate": "^1.0.7",
