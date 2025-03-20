@@ -6,4 +6,6 @@ A simple UI to test conversational agents. It's built using [assistant-ui](https
 
 The API must be available at `/chat`.
 
+The UI is available at `/webjars/chat-agent-ui/index.html`.
+
 See an example at [here](https://github.com/JavaAIDev/simple-ai-agent).
