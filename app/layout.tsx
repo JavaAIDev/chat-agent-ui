@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { AgentRuntimeProvider } from "@/components/AgentRuntimeProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,7 +24,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <AgentRuntimeProvider>
       <html lang="en">
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -33,6 +31,5 @@ export default function RootLayout({
           {children}
         </body>
       </html>
-    </AgentRuntimeProvider>
   );
 }
