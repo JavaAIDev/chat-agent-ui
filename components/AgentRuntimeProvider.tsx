@@ -35,7 +35,7 @@ const AgentModelAdapter: ChatModelAdapter = {
         .pipeThrough(new EventSourceParserStream());
 
     let text = "";
-    // @ts-ignore
+    // @ts-expect-error "unknown"
     for await (const content of eventStream) {
       let data = content.data || "";
       if (data.length > 2) {
