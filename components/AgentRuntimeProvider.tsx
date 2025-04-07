@@ -32,19 +32,26 @@ const AgentModelAdapter: ChatModelAdapter = {
 
     const eventStream = response.body
         .pipeThrough(new TextDecoderStream())
-        .pipeThrough(new EventSourceParserStream());
+        .pipeThrough(new EventSourceParserStream())
+        .getReader();
 
     let text = "";
-    // @ts-expect-error "unknown"
-    for await (const content of eventStream) {
-      let data = content.data || "";
-      if (data.length > 2) {
-        data = data.substring(1, data.length - 1);
+
+    for (;;) {
+      const {done, value} = await eventStream.read()
+      if (!done) {
+        let data = value.data || "";
+        if (data.length > 2) {
+          data = data.substring(1, data.length - 1);
+        }
+        text += data;
+        yield {
+          content: [{ type: "text", text }],
+        };
+        continue
+      } else {
+        break
       }
-      text += data;
-      yield {
-        content: [{ type: "text", text }],
-      };
     }
   },
 };
