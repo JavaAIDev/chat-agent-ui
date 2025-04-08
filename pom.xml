@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.javaaidev.chatagentui</groupId>
   <artifactId>chat-agent-ui-parent</artifactId>
-  <version>0.8.0</version>
+  <version>0.9.0</version>
   <packaging>pom</packaging>
   <name>Chat Agent UI :: Parent</name>
   <description>Chat Agent UI</description>
