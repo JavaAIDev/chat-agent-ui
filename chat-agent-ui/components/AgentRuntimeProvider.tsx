@@ -38,19 +38,21 @@ const AgentModelAdapter: ChatModelAdapter = {
     let text = "";
 
     for (;;) {
-      const {done, value} = await eventStream.read()
+      const {done, value} = await eventStream.read();
       if (!done) {
-        let data = value.data || "";
-        if (data.length > 2) {
-          data = data.substring(1, data.length - 1);
+        if (!value.data) {
+          continue;
         }
-        text += data;
+        const { content } = JSON.parse(value.data);
+        if (!content || content.length == 0 || content[0].type !== "text" || !content[0].text) {
+          continue;
+        }
+        text += content[0].text;
         yield {
           content: [{ type: "text", text }],
         };
-        continue
       } else {
-        break
+        break;
       }
     }
   },

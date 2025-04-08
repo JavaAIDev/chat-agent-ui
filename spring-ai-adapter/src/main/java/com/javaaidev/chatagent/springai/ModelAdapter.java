@@ -15,6 +15,8 @@ import org.springframework.ai.chat.messages.Message;
 import org.springframework.ai.chat.messages.UserMessage;
 import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.chat.model.Generation;
+import org.springframework.http.codec.ServerSentEvent;
+import reactor.core.publisher.Flux;
 
 /**
  * Convert models between chat agent and Spring AI
@@ -63,5 +65,24 @@ public class ModelAdapter {
       content.add(new TextContentPart(generation.getOutput().getText()));
     }
     return new ChatAgentResponse(content);
+  }
+
+  /**
+   * Convert a stream of Spring AI {@linkplain ChatResponse} to a stream of
+   * {@linkplain ChatAgentResponse} using Server-sent Events
+   *
+   * @param chatResponse Stream of {@linkplain ChatResponse}
+   * @return Stream of {@linkplain ChatAgentResponse}
+   */
+  public static Flux<ServerSentEvent<ChatAgentResponse>> toStreamingResponse(
+      Flux<ChatResponse> chatResponse) {
+    return chatResponse.concatMap(
+            response -> Flux.fromIterable(response.getResults()))
+        .filter(generation -> Objects.nonNull(generation.getOutput().getText()))
+        .map(generation -> generation.getOutput().getText())
+        .map(text -> ServerSentEvent.<ChatAgentResponse>builder()
+            .data(new ChatAgentResponse(
+                List.of(new TextContentPart(text))))
+            .build());
   }
 }
