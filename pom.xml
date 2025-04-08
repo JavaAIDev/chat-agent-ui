@@ -3,10 +3,11 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.javaaidev</groupId>
-  <artifactId>chat-agent-ui</artifactId>
+  <groupId>com.javaaidev.chatagentui</groupId>
+  <artifactId>chat-agent-ui-parent</artifactId>
   <version>0.8.0</version>
-  <name>Chat Agent UI</name>
+  <packaging>pom</packaging>
+  <name>Chat Agent UI :: Parent</name>
   <description>Chat Agent UI</description>
 
   <url>https://github.com/JavaAIDev/chat-agent-ui</url>
@@ -23,6 +24,10 @@
       <email>alexcheng1982@gmail.com</email>
     </developer>
   </developers>
+  <modules>
+    <module>spring-ai-adapter</module>
+    <module>chat-agent-ui</module>
+  </modules>
 
   <scm>
     <connection>
@@ -40,48 +45,6 @@
       <url>https://repo1.maven.org/maven2/</url>
     </repository>
   </repositories>
-
-  <properties>
-    <maven.compiler.source>21</maven.compiler.source>
-    <maven.compiler.target>21</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-
-  <dependencies>
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>2.18.2</version>
-    </dependency>
-  </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>3.3.1</version>
-        <executions>
-          <execution>
-            <id>copy-resources</id>
-            <phase>validate</phase>
-            <goals>
-              <goal>copy-resources</goal>
-            </goals>
-            <configuration>
-              <outputDirectory>
-                ${project.build.outputDirectory}/META-INF/resources/webjars/chat-agent-ui</outputDirectory>
-              <resources>
-                <resource>
-                  <directory>${basedir}/dist</directory>
-                  <filtering>false</filtering>
-                </resource>
-              </resources>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
 
   <profiles>
     <profile>
