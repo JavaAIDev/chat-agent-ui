@@ -1,6 +1,7 @@
 # Chat Agent UI
 
-[![build](https://github.com/LLMAgentBuilder/chat-agent-ui/actions/workflows/build.yml/badge.svg)](https://github.com/LLMAgentBuilder/chat-agent-ui/actions/workflows/build.yml)
+[![build](https://github.com/JavaAIDev/chat-agent-ui/actions/workflows/build.yml/badge.svg)](https://github.com/LLMAgentBuilder/chat-agent-ui/actions/workflows/build.yml)
+![Maven Central Version](https://img.shields.io/maven-central/v/com.javaaidev.chatagentui/chat-agent-ui-parent)
 
 A simple UI to test conversational agents. It's built
 using [assistant-ui](https://www.assistant-ui.com/) with
