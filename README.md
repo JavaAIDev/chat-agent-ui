@@ -13,4 +13,10 @@ The UI is available at `/webjars/chat-agent-ui/index.html`.
 
 See an example at [here](https://github.com/JavaAIDev/simple-ai-agent).
 
+Features:
+
+- Text input and output
+- Reasoning output from LLMs
+- Attachments: images and text files
+
 ![Chat agent UI](./chat-agent-ui.png)
