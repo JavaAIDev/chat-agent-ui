@@ -11,6 +11,7 @@
   "dependencies": {
     "@assistant-ui/react": "^0.11.47",
     "@assistant-ui/react-markdown": "^0.11.6",
+    "@radix-ui/react-collapsible": "^1.1.12",
     "@radix-ui/react-slot": "^1.2.4",
     "@radix-ui/react-tooltip": "^1.2.8",
     "class-variance-authority": "^0.7.1",
@@ -24,6 +25,7 @@
     "remark-gfm": "^4.0.1",
     "tailwind-merge": "^3.4.0",
     "tailwindcss-animate": "^1.0.7",
+    "tw-shimmer": "^0.2.2",
     "zod": "^4.1.13"
   },
   "devDependencies": {

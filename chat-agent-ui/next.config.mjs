@@ -7,5 +7,17 @@ export default (phase) => {
         assetPrefix: isDev ? undefined : '/webjars/chat-agent-ui',
         output: "export",
         distDir: "dist",
+        async rewrites() {
+            if (!isDev) {
+                return [];
+            }
+
+            return [
+                {
+                    source: "/chat",
+                    destination: "http://localhost:8080/chat",
+                },
+            ];
+        }
     }
 }

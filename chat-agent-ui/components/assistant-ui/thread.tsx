@@ -6,6 +6,7 @@ import {
     MessagePrimitive,
     ThreadPrimitive,
 } from "@assistant-ui/react";
+import {Reasoning, ReasoningGroup} from "@/components/assistant-ui/reasoning";
 import type {FC} from "react";
 import {
     ArrowDownIcon,
@@ -186,7 +187,11 @@ const AssistantMessage: FC = () => {
             className="grid grid-cols-[auto_auto_1fr] grid-rows-[auto_1fr] relative w-full max-w-[var(--thread-max-width)] py-4">
             <div
                 className="text-foreground max-w-[calc(var(--thread-max-width)*0.8)] break-words leading-7 col-span-2 col-start-2 row-start-1 my-1.5">
-                <MessagePrimitive.Parts components={{Text: MarkdownText}}/>
+                <MessagePrimitive.Parts components={{
+                    Text: MarkdownText,
+                    Reasoning: Reasoning,
+                    ReasoningGroup: ReasoningGroup,
+                }}/>
                 <MessageError/>
             </div>
 

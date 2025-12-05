@@ -1,7 +1,12 @@
 "use client";
 
 import type {ReactNode} from "react";
-import {AssistantRuntimeProvider, type ChatModelAdapter, useLocalRuntime,} from "@assistant-ui/react";
+import {
+    AssistantRuntimeProvider,
+    type ChatModelAdapter,
+    type ThreadAssistantMessagePart,
+    useLocalRuntime,
+} from "@assistant-ui/react";
 import {EventSourceParserStream} from 'eventsource-parser/stream'
 
 const AgentModelAdapter: ChatModelAdapter = {
@@ -32,6 +37,7 @@ const AgentModelAdapter: ChatModelAdapter = {
             .getReader();
 
         let text = "";
+        let reasoning = "";
 
         for (; ;) {
             const {done, value} = await eventStream.read();
@@ -40,12 +46,27 @@ const AgentModelAdapter: ChatModelAdapter = {
                     continue;
                 }
                 const {content} = JSON.parse(value.data);
-                if (!content || content.length == 0 || content[0].type !== "text" || !content[0].text) {
+                if (!content || content.length == 0) {
                     continue;
                 }
-                text += content[0].text;
+                for (const item of content) {
+                    if (item.type === "text") {
+                        text += item.text;
+                    } else if (item.type === "reasoning") {
+                        reasoning += item.text;
+                    }
+                }
+
+                const result: ThreadAssistantMessagePart[] = [];
+                if (text) {
+                    result.push({type: "text", text});
+                }
+                if (reasoning) {
+                    result.push({type: "reasoning", text: reasoning});
+                }
+
                 yield {
-                    content: [{type: "text", text}],
+                    content: result,
                 };
             } else {
                 break;
