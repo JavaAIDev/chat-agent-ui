@@ -4,6 +4,9 @@ import type {ReactNode} from "react";
 import {
     AssistantRuntimeProvider,
     type ChatModelAdapter,
+    CompositeAttachmentAdapter,
+    SimpleImageAttachmentAdapter,
+    SimpleTextAttachmentAdapter,
     type ThreadAssistantMessagePart,
     useLocalRuntime,
 } from "@assistant-ui/react";
@@ -80,7 +83,14 @@ export function AgentRuntimeProvider({
                                      }: Readonly<{
     children: ReactNode;
 }>) {
-    const runtime = useLocalRuntime(AgentModelAdapter);
+    const runtime = useLocalRuntime(AgentModelAdapter, {
+        adapters: {
+            attachments: new CompositeAttachmentAdapter([
+                new SimpleImageAttachmentAdapter(),
+                new SimpleTextAttachmentAdapter()
+            ]),
+        }
+    });
 
     return (
         <AssistantRuntimeProvider runtime={runtime}>

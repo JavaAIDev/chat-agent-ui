@@ -23,6 +23,7 @@ import {cn} from "@/lib/utils";
 import {Button} from "@/components/ui/button";
 import {MarkdownText} from "@/components/assistant-ui/markdown-text";
 import {TooltipIconButton} from "@/components/assistant-ui/tooltip-icon-button";
+import {ComposerAddAttachment, ComposerAttachments} from "@/components/assistant-ui/attachment";
 
 export const Thread: FC = () => {
     return (
@@ -90,6 +91,8 @@ const Composer: FC = () => {
     return (
         <ComposerPrimitive.Root
             className="focus-within:border-ring/20 flex w-full flex-wrap items-end rounded-lg border bg-inherit px-2.5 shadow-sm transition-colors ease-in">
+            <ComposerAttachments/>
+            <ComposerAddAttachment/>
             <ComposerPrimitive.Input
                 rows={1}
                 autoFocus
