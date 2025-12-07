@@ -15,7 +15,7 @@ See an example at [here](https://github.com/JavaAIDev/simple-ai-agent).
 
 Features:
 
-- Text input and output
+- Text input and output with Markdown and syntax highlighting support
 - Reasoning output from LLMs
 - Attachments: images and text files
 
