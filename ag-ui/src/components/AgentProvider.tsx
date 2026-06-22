@@ -9,10 +9,10 @@ export default function AgentProvider({
     children: React.ReactNode;
 }>) {
     const agent = new HttpAgent({
-        url: "/api/agent",
+        url: "/agent",
     });
     return (
-        <CopilotKit agents__unsafe_dev_only={{ "default": agent }}>
+        <CopilotKit agents__unsafe_dev_only={{ "default": agent }} enableInspector={false}>
             {children}
         </CopilotKit>
     )
