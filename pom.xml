@@ -26,6 +26,7 @@
     </developers>
     <modules>
         <module>chat-agent-ui</module>
+        <module>ag-ui</module>
     </modules>
 
     <scm>
